@@ -1,0 +1,693 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Landing Page Colors - Shared */
+  --color-amber-50: #fffbeb;
+  --color-amber-100: #fef3c7;
+  --color-amber-200: #fde68a;
+  --color-amber-300: #fcd34d;
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #d97706;
+  --color-amber-700: #b45309;
+
+  --color-orange-400: #fb923c;
+  --color-orange-500: #f97316;
+  --color-orange-600: #ea580c;
+
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+
+  /* Gradient definitions */
+  --gradient-primary: linear-gradient(135deg, var(--color-amber-500) 0%, var(--color-orange-500) 100%);
+  --gradient-primary-hover: linear-gradient(135deg, var(--color-amber-600) 0%, var(--color-orange-600) 100%);
+  --gradient-hero: linear-gradient(135deg, var(--color-slate-900) 0%, var(--color-slate-800) 50%, var(--color-slate-900) 100%);
+  --gradient-cta: linear-gradient(135deg, var(--color-amber-500) 0%, var(--color-orange-500) 50%, #f43f5e 100%);
+
+  /* Glass effects - Base */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-bg-dark: rgba(0, 0, 0, 0.2);
+  --glass-border-dark: rgba(0, 0, 0, 0.3);
+
+  /* Glass effects - Orange/Amber */
+  --glass-orange-bg-from: rgba(245, 158, 11, 0.2);
+  --glass-orange-bg-to: rgba(249, 115, 22, 0.2);
+  --glass-orange-border: rgba(255, 255, 255, 0.1);
+  --glass-orange-gradient: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(249, 115, 22, 0.2) 100%);
+
+  /* Glass effects - Amber Light (more vibrant) */
+  --glass-amber-light-bg-from: rgba(245, 158, 11, 0.3);
+  --glass-amber-light-bg-to: rgba(249, 115, 22, 0.25);
+  --glass-amber-light-gradient: linear-gradient(135deg, rgba(245, 158, 11, 0.3) 0%, rgba(249, 115, 22, 0.25) 100%);
+
+  /* Glass effects - Slate */
+  --glass-slate-bg-from: rgba(51, 65, 85, 0.5);
+  --glass-slate-bg-to: rgba(30, 41, 59, 0.5);
+  --glass-slate-border: rgba(255, 255, 255, 0.1);
+  --glass-slate-gradient: linear-gradient(135deg, rgba(51, 65, 85, 0.5) 0%, rgba(30, 41, 59, 0.5) 100%);
+
+  /* Glass effects - Blue (for solar panels) */
+  --glass-blue-bg-from: rgba(30, 58, 138, 1);
+  --glass-blue-bg-to: rgba(29, 78, 216, 1);
+  --glass-blue-border: rgba(37, 99, 235, 1);
+  --glass-blue-gradient: linear-gradient(135deg, rgba(30, 58, 138, 1) 0%, rgba(29, 78, 216, 1) 100%);
+}
+
+.light {
+  /* App Theme Colors */
+  --color-app-bg: #e6e2d7;
+  --color-card-bg: #f0f0f0;
+  --color-text-primary: #344e41;
+  --color-text-secondary: #588157;
+  --color-primary: #3a5a40;
+  --color-primary-hover: #588157;
+  --color-border-soft: #C7DBC1;
+  --color-bg-subtle: #C7DBC1;
+  --color-accent: #E5A93F;
+  --color-sidebar-bg: #344e41;
+  --color-sidebar-hover: #3a5a40;
+  --color-sidebar-active: #588157;
+
+  /* Landing Page Light Theme */
+  --landing-hero-bg: var(--color-slate-900);
+  --landing-hero-text: #ffffff;
+  --landing-section-bg: #f9fafb;
+  --landing-section-bg-alt: #ffffff;
+  --landing-card-bg: #ffffff;
+  --landing-card-border: #f3f4f6;
+  --landing-card-shadow: rgba(0, 0, 0, 0.1);
+  --landing-text-primary: #111827;
+  --landing-text-secondary: #4b5563;
+  --landing-text-muted: #9ca3af;
+  --landing-footer-bg: var(--color-slate-900);
+  --landing-footer-text: #9ca3af;
+
+  /* Feature colors */
+  --feature-blue: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+  --feature-amber: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+  --feature-green: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
+  --feature-purple: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  --feature-red: linear-gradient(135deg, #ef4444 0%, #f43f5e 100%);
+  --feature-yellow: linear-gradient(135deg, #eab308 0%, #f59e0b 100%);
+}
+
+.dark {
+  /* App Theme Colors */
+  --color-app-bg: #0d1b2a;
+  --color-card-bg: #293d61;
+  --color-text-primary: #e0e1dd;
+  --color-text-secondary: #a8b2ad;
+  --color-primary: #415a77;
+  --color-primary-hover: #778da9;
+  --color-border-soft: #2d3e50;
+  --color-bg-subtle: #243447;
+  --color-accent: #E5A93F;
+  --color-sidebar-bg: #0d1b2a;
+  --color-sidebar-hover: #1b263b;
+  --color-sidebar-active: #415a77;
+
+  /* Landing Page Dark Theme */
+  --landing-hero-bg: #030712;
+  --landing-hero-text: #ffffff;
+  --landing-section-bg: #111827;
+  --landing-section-bg-alt: #1f2937;
+  --landing-card-bg: #1f2937;
+  --landing-card-border: #374151;
+  --landing-card-shadow: rgba(0, 0, 0, 0.3);
+  --landing-text-primary: #f9fafb;
+  --landing-text-secondary: #d1d5db;
+  --landing-text-muted: #6b7280;
+  --landing-footer-bg: #030712;
+  --landing-footer-text: #6b7280;
+
+  /* Feature colors - slightly adjusted for dark mode */
+  --feature-blue: linear-gradient(135deg, #60a5fa 0%, #22d3ee 100%);
+  --feature-amber: linear-gradient(135deg, #fbbf24 0%, #fb923c 100%);
+  --feature-green: linear-gradient(135deg, #4ade80 0%, #34d399 100%);
+  --feature-purple: linear-gradient(135deg, #c084fc 0%, #f472b6 100%);
+  --feature-red: linear-gradient(135deg, #f87171 0%, #fb7185 100%);
+  --feature-yellow: linear-gradient(135deg, #facc15 0%, #fbbf24 100%);
+
+  /* Glass effects - Orange/Amber (brighter for dark mode) */
+  --glass-orange-bg-from: rgba(245, 158, 11, 0.25);
+  --glass-orange-bg-to: rgba(249, 115, 22, 0.25);
+  --glass-orange-gradient: linear-gradient(135deg, rgba(245, 158, 11, 0.25) 0%, rgba(249, 115, 22, 0.25) 100%);
+
+  --glass-amber-light-bg-from: rgba(245, 158, 11, 0.35);
+  --glass-amber-light-bg-to: rgba(249, 115, 22, 0.3);
+  --glass-amber-light-gradient: linear-gradient(135deg, rgba(245, 158, 11, 0.35) 0%, rgba(249, 115, 22, 0.3) 100%);
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased;
+    background-color: var(--color-app-bg);
+    color: var(--color-text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+@layer components {
+
+  /* Landing Page Components */
+  .landing-section {
+    background-color: var(--landing-section-bg);
+    color: var(--landing-text-primary);
+  }
+
+  .landing-section-alt {
+    background-color: var(--landing-section-bg-alt);
+    color: var(--landing-text-primary);
+  }
+
+  .landing-card {
+    background-color: var(--landing-card-bg);
+    border: 1px solid var(--landing-card-border);
+    box-shadow: 0 10px 15px -3px var(--landing-card-shadow);
+  }
+
+  .landing-card-hover:hover {
+    box-shadow: 0 20px 25px -5px var(--landing-card-shadow);
+    transform: translateY(-4px);
+  }
+
+  .landing-text-primary {
+    color: var(--landing-text-primary);
+  }
+
+  .landing-text-secondary {
+    color: var(--landing-text-secondary);
+  }
+
+  .landing-text-muted {
+    color: var(--landing-text-muted);
+  }
+
+  /* Hero Section */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  /* Primary Button */
+  .btn-primary-gradient {
+    background: var(--gradient-primary);
+    color: white;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary-gradient:hover {
+    background: var(--gradient-primary-hover);
+    box-shadow: 0 10px 20px -5px rgba(245, 158, 11, 0.4);
+    transform: translateY(-2px);
+  }
+
+  /* ============================================
+     GLASS CARD VARIANTS
+     ============================================ */
+
+  /* Base Glass Card - White tint */
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+  }
+
+  /* Dark Glass Card */
+  .glass-card-dark {
+    background: var(--glass-bg-dark);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border-dark);
+  }
+
+  /* Orange/Amber Glass Card - For stats cards */
+  .glass-card-orange {
+    background: var(--glass-orange-gradient);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-orange-border);
+  }
+
+  /* Amber Light Glass Card - More vibrant version */
+  .glass-card-amber {
+    background: var(--glass-amber-light-gradient);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(245, 158, 11, 0.15);
+  }
+
+  /* Amber Glass Card with glow effect */
+  .glass-card-amber-glow {
+    background: var(--glass-amber-light-gradient);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow:
+      0 8px 32px rgba(245, 158, 11, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* Slate Glass Card - For main containers on dark backgrounds */
+  .glass-card-slate {
+    background: var(--glass-slate-gradient);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-slate-border);
+  }
+
+  /* Blue Glass Card - For solar panel elements */
+  .glass-card-blue {
+    background: var(--glass-blue-gradient);
+    border: 1px solid var(--glass-blue-border);
+  }
+
+  /* Glass Card with subtle inner shadow */
+  .glass-card-inner {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* Glass Card Hover States */
+  .glass-card-orange:hover {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.25) 0%, rgba(249, 115, 22, 0.25) 100%);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .glass-card-amber:hover {
+    box-shadow: 0 12px 40px rgba(245, 158, 11, 0.25);
+  }
+
+  /* ============================================
+     END GLASS CARD VARIANTS
+     ============================================ */
+
+  /* Navbar Scrolled State */
+  .navbar-scrolled {
+    background: var(--landing-card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 4px 6px -1px var(--landing-card-shadow);
+  }
+
+  /* Feature Icon Backgrounds */
+  .feature-icon-blue {
+    background: var(--feature-blue);
+  }
+
+  .feature-icon-amber {
+    background: var(--feature-amber);
+  }
+
+  .feature-icon-green {
+    background: var(--feature-green);
+  }
+
+  .feature-icon-purple {
+    background: var(--feature-purple);
+  }
+
+  .feature-icon-red {
+    background: var(--feature-red);
+  }
+
+  .feature-icon-yellow {
+    background: var(--feature-yellow);
+  }
+
+  /* CTA Gradient Background */
+  .cta-gradient {
+    background: var(--gradient-cta);
+  }
+
+  /* Gradient Text */
+  .gradient-text-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-green {
+    background: var(--feature-green);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-purple {
+    background: var(--feature-purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animated Orb */
+  .orb-amber {
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.4) 0%, rgba(245, 158, 11, 0) 70%);
+  }
+
+  .orb-orange {
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.3) 0%, rgba(249, 115, 22, 0) 70%);
+  }
+
+  /* Product Card Styles */
+  .product-card-popular {
+    border: 2px solid var(--color-amber-500);
+    box-shadow: 0 20px 25px -5px rgba(245, 158, 11, 0.2);
+  }
+
+  /* Badge Styles */
+  .badge-amber {
+    background-color: rgba(245, 158, 11, 0.2);
+    color: var(--color-amber-500);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+  }
+
+  .badge-green {
+    background-color: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+  }
+
+  .badge-purple {
+    background-color: rgba(168, 85, 247, 0.1);
+    color: #a855f7;
+  }
+
+  /* Solar Panel Cell */
+  .solar-panel-cell {
+    background: var(--glass-blue-gradient);
+    border: 1px solid var(--glass-blue-border);
+    border-radius: 2px;
+  }
+
+  /* Stripe Elements Custom Styling */
+  .stripe-element-container {
+    @apply relative;
+  }
+
+  .stripe-element-container .StripeElement {
+    @apply w-full;
+  }
+
+  .stripe-element-container .StripeElement--focus {
+    outline: none;
+  }
+
+  .stripe-element-container .StripeElement--invalid {
+    border-color: #ef4444;
+  }
+
+  .stripe-element-container .StripeElement--complete {
+    border-color: #22c55e;
+  }
+
+  /* Payment form animations */
+  .payment-input-glow {
+    animation: paymentGlow 2s ease-in-out infinite;
+  }
+
+  @keyframes paymentGlow {
+
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(58, 90, 64, 0);
+    }
+
+    50% {
+      box-shadow: 0 0 20px 0 rgba(58, 90, 64, 0.15);
+    }
+  }
+
+  /* Card shimmer effect */
+  .card-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent);
+    animation: shimmerEffect 2s infinite;
+  }
+
+  @keyframes shimmerEffect {
+    0% {
+      left: -100%;
+    }
+
+    100% {
+      left: 100%;
+    }
+  }
+
+  /* Success checkmark animation */
+  .success-checkmark {
+    animation: checkmarkBounce 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes checkmarkBounce {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+
+    50% {
+      transform: scale(1.2);
+    }
+
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Payment processing pulse */
+  .processing-pulse {
+    animation: processingPulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes processingPulse {
+
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 0.7;
+      transform: scale(1.05);
+    }
+  }
+}
+
+@layer utilities {
+  .stagger-children>* {
+    animation-delay: calc(var(--stagger) * 0.1s);
+  }
+
+  .input-glow:focus {
+    @apply shadow-input-focus;
+    animation: inputGlow 0.3s ease-out;
+  }
+
+  .btn-press:active {
+    @apply shadow-button-press;
+    transform: scale(0.98);
+  }
+
+  .transition-smooth {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .bg-gradient-animated {
+    background: linear-gradient(135deg, var(--color-app-bg) 0%, var(--color-bg-subtle) 50%, var(--color-app-bg) 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  @keyframes gradientShift {
+
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes inputGlow {
+    0% {
+      box-shadow: 0 0 0 0 rgba(88, 129, 87, 0.4);
+    }
+
+    100% {
+      box-shadow: 0 0 0 4px rgba(88, 129, 87, 0.1);
+    }
+  }
+
+  .hover-lift {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .sidebar-transition {
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .page-transition {
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .theme-transition {
+    transition: background-color 0.3s ease,
+      color 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  /* Landing Page Specific Utilities */
+  .text-amber-primary {
+    color: var(--color-amber-500);
+  }
+
+  .text-amber-light {
+    color: var(--color-amber-400);
+  }
+
+  .bg-amber-primary {
+    background-color: var(--color-amber-500);
+  }
+
+  .border-amber-primary {
+    border-color: var(--color-amber-500);
+  }
+
+  /* Scroll Animation Delay Utilities */
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  /* Floating Animation */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  /* Pulse Glow */
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseGlow {
+
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+    }
+
+    50% {
+      box-shadow: 0 0 40px rgba(245, 158, 11, 0.6);
+    }
+  }
+
+  /* Amber Glow Animation */
+  .animate-amber-glow {
+    animation: amberGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes amberGlow {
+
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+    }
+
+    50% {
+      box-shadow: 0 0 40px rgba(245, 158, 11, 0.4);
+    }
+  }
+
+  /* Bar Chart Animation */
+  .animate-bar-rise {
+    animation: barRise 1s ease-out forwards;
+  }
+
+  @keyframes barRise {
+    from {
+      transform: scaleY(0);
+      transform-origin: bottom;
+    }
+
+    to {
+      transform: scaleY(1);
+      transform-origin: bottom;
+    }
+  }
+
+  /* Scaling Utilities */
+  .scale-80-origin-top {
+    transform: scale(0.8);
+    transform-origin: top left;
+    width: 125%;
+    /* Compensation for scale(0.8) to fill the width (1 / 0.8 = 1.25) */
+  }
+}
