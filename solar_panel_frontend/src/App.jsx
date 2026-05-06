@@ -1,8 +1,8 @@
 import { useEffect, Suspense, lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import AuthPage from './components/Auth/AuthPage';
+import AuthPage from './components/auth/AuthPage';
 import AppLayout from './components/layout/AppLayout';
-import ProtectedRoute from './components/Auth/ProtectedRoute';
+import ProtectedRoute from './components/auth/ProtectedRoute';
 import FullScreenLoader from './components/ui/FullScreenLoader';
 import { useToast } from './context/ToastContext';
 import { setToastCallback } from './lib/axios';
