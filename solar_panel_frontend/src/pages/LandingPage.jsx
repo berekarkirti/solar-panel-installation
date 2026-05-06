@@ -31,6 +31,7 @@ import {
     ArrowUp,
 } from 'lucide-react';
 import ThemeToggle from '../components/ui/ThemeToggle';
+import { getApiBaseUrl } from '../config/apiBase.js';
 
 // Animation variants
 const fadeInUp = {
@@ -875,7 +876,7 @@ const ReviewsSection = () => {
     useEffect(() => {
         const fetchReviews = async () => {
             try {
-                const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/reviews/latest?limit=10`);
+                const response = await fetch(`${getApiBaseUrl()}/reviews/latest?limit=10`);
                 const data = await response.json();
                 if (data.success) {
                     const mappedReviews = data.data.reviews.map(review => ({

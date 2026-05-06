@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GoogleLogin } from '@react-oauth/google';
+import { getApiBaseUrl } from '../../config/apiBase.js';
 import { useAuth } from '../../context/AuthContext';
 import Card from '../ui/Card';
 import Button from '../ui/Button';
@@ -92,7 +93,7 @@ const AuthPage = () => {
         };
       }
 
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}${endpoint}`, {
+      const response = await fetch(`${getApiBaseUrl()}${endpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -152,7 +153,7 @@ const AuthPage = () => {
     setMessage({ type: '', text: '' });
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/auth/google`, {
+      const response = await fetch(`${getApiBaseUrl()}/auth/google`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

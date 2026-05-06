@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect, useContext, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { getApiBaseUrl } from '../config/apiBase.js';
 
 const AuthContext = createContext(null);
 
@@ -50,7 +51,7 @@ export const AuthProvider = ({ children }) => {
         }
 
         // Verify token with backend
-        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/auth/me`, {
+        const res = await fetch(`${getApiBaseUrl()}/auth/me`, {
           headers: {
             Authorization: `Bearer ${storedToken}`,
           },
